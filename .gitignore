@@ -1,0 +1,12 @@
+__pycache__
+data
+.vscode
+.ipynb_checkpoints
+freeze
+venv
+notebooks
+rstudio
+logs
+google-datalab
+submit-jobs-dataproc
+.python-version

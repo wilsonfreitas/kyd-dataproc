@@ -87,18 +87,18 @@ def download_unzip_and_get_content(temp, encode=True, encoding='latin1'):
         return content
 
 
-def parse_taxa_cdi_idi(text):
+def parse_taxa_cdi_idi_b3(text):
     text_parser = PortugueseRulesParser2()
     cdi_data = json.loads(text)
     cdi_prices_data = {
-        'trade_date': text_parser.parse(cdi_data['dataTaxa']),
-        'last_price': text_parser.parse(cdi_data['taxa']),
-        'ticker_symbol': 'CDI'
+        'refdate': text_parser.parse(cdi_data['dataTaxa']),
+        'value': text_parser.parse(cdi_data['taxa']),
+        'symbol': 'CDI'
     }
     idi_prices_data = {
-        'trade_date': text_parser.parse(cdi_data['dataIndice']),
-        'last_price': text_parser.parse(cdi_data['indice']),
-        'ticker_symbol': 'IDI'
+        'refdate': text_parser.parse(cdi_data['dataIndice']),
+        'value': text_parser.parse(cdi_data['indice']),
+        'symbol': 'IDI'
     }
     return cdi_prices_data, idi_prices_data
 
